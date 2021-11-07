@@ -2,10 +2,10 @@
  * 全局 store 类型
  */
  export interface StoreType {
-  // Main: MainStoreType,
-  // DictionaryWindow: DictionaryWindowStoreType,
-  TextWindow: TextWindowStoreType,
-  // MarkView: MarkViewStoreType,
+  Main: MainStoreType,
+  DictionaryView: DictionaryViewStoreType,
+  TextView: TextViewStoreType,
+  MarkView: MarkViewStoreType,
   // Loading: LoadingStoreType,
   // TrainView: MarkViewStoreType,
 }
@@ -15,18 +15,18 @@ export interface MainStoreType {
   dictionaryData: {
       [label: string]: TableDataType
   },
+  textsData: Array<TextsDataType>,
   labelByShow: string,
   isSave: boolean,
 }
 
-export interface DictionaryWindowStoreType {
+export interface DictionaryViewStoreType {
   tableData: TableDataType,
   path: string
 }
 
-export interface TextWindowStoreType {
+export interface TextViewStoreType {
   data: TextsDataType,
-  path: string,
   isSave: boolean,
   current: number,
 }
@@ -60,7 +60,8 @@ export type TextsDataType = Array<{
       start: number,
       end: number,
       label: string
-  }>
+  }>,
+  textArr?: Array<FontObject>
 }>
 
 /**
@@ -86,4 +87,5 @@ export interface FontObject {
   end: number,
   label: string,
   color: string,
+  _id?: string
 }

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { 
-	HashRouter as Router, 
+	BrowserRouter  as Router, 
 	Route, 
 	Switch,
 } from 'react-router-dom'
 import './App.css'
+import LoginView from './components/LoginView';
 import Main from './components/Main';
 // import Main from './components/Main'
 
@@ -26,12 +27,14 @@ class App extends Component<AppProps, AppState>{
 	public render(): JSX.Element {
 		return (
 			<Router>
-				<Switch>
+				{/* <Switch> */}
 					{/* <Route path="/DictionaryWindow/:path" component={DictionaryWindow} exact/>
 					<Route path="/TextWindow/:path" component={TextWindow} exact/>
 					<Route path="/ModelConfigWindow" component={ModelConfigWindow} exact/> */}
-					<Route path="/" component={Main}/>
-				</Switch>
+					<Route path="/" component={LoginView} exact/>
+					<Route path="/index" component={Main} />
+
+				{/* </Switch> */}
 				
 				{/* <Main /> */}
 			</Router>
